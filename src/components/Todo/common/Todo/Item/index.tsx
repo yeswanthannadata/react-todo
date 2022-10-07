@@ -62,9 +62,10 @@ export const Item: FC<Props> = ({
 
   const [itemText, setItemText] = useState("");
   const [draggable, setDraggable] = useState(false);
+  const [focusIndex, setFocusIndex] = useState(itemIndex);
 
   useEffect(() => {
-    items[itemIndex].name.length < 2 &&
+    focusIndex === itemIndex &&
       inputRef.current &&
       inputRef.current.focus();
     setItemText(items[itemIndex].name);
